@@ -7,6 +7,7 @@ const numbersEL = document.getElementById("numbers");
 const symbolsEl = document.getElementById("symbols");
 const generateEl = document.getElementById("generate");
 
+// setting my variables
 const randomFunc = {
   lower: getRandomLower,
   upper: getRandomUpper,
@@ -70,6 +71,7 @@ function generatePassword(lower, upper, number, symbol, length) {
 
   console.log(generatedPassword);
 
+  // since index starts at 0, if user wants a 1 character pass word this will allow it
   const finalPassword = generatedPassword.slice(0, length);
 
 
