@@ -1,32 +1,46 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
+// Work with the DOM Elements
+const resultEl = document.getElementById("result");
+const lengthEl = document.getElementById("length");
+const uppercaseEl = document.getElementById("uppercase");
+const lowercaseEl = document.getElementById("lowercase");
+const numbersEL = document.getElementById("numbers");
+const symbolEl = document.getElementById("symbols");
+const generateEl = document.getElementById("generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+const randomFunc = {
+  lower: getRandomLower,
+  upper: getRandomUpper,
+  number: getRandomNumber,
+  symbol: getRandomSymbol
+};
 
-  passwordText.value = password;
+// Add event listener for password generation
 
+generateEl.addEventListener("click", () => {
+  const length = +lengthEl.value;
+  const hasLower = lowercaseEl.checked;
+  const hasUpper = uppercaseEl.checked;
+  const hasNumber = numbersEL.checked;
+  const hasSymbol = symbolsEl.checked;
+
+  generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
+
+})
+
+// Generator Functions
+function getRandomLower() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+function getRandomUpper() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
 
-// Add the neccesary prompts and confirms for password generation
+function getRandomNumber() {
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+}
 
-var wantNum = confirm("Would you the password to contain numbers?")
-
-console.log(wantNum);
-
-var wantUpperCase = confirm("Would you like the password to contain uppercase letters?")
-
-console.log(wantUpperCase);
-
-var wantSpecChar = confirm("Would you like the password to contain special characters?")
-
-console.log(wantSpecChar);
-
-var howManyChar = prompt("How long would you like the password to be?")
-
-console.log(howManyChar);
+function getRandomSymbol() {
+  const symbols = '!@#$%^&*(){}[]=<>/,.';
+  return symbols[Math.floor(math.random() * symbols.length)];
+}
