@@ -78,6 +78,8 @@ function generatePassword(lower, upper, number, symbol, length) {
   // return finalPassword
 
   alert("This is your password: " + finalPassword);
+
+  document.getElementById(resultEl).reset();
 }
 
 
