@@ -8,7 +8,7 @@
 5. Client will have options as to whether or not theyd like numbers.
 6. Client will have options as to whether or not they'd like symbols.
 7. Client is then ready to generate
-8. Password will be shown through an alert
+8. Password will be shown through an alert then displayed on the output field aswell
 
 # Visuals
 
