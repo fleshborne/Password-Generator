@@ -19,3 +19,5 @@
 https://github.com/fleshborne/Password-Generator
 
 https://fleshborne.github.io/Password-Generator/
+
+https://net-comber.com/charset.html
