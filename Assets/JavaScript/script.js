@@ -71,23 +71,14 @@ function generatePassword(lower, upper, number, symbol, length) {
   }
   console.log(generatedPassword);
 
-  // since index starts at 0, if user wants a 1 character pass word this will allow it
+  // since index starts at 0, if user wants a 1 character pass word this will allow it, however outside of the scope of acceptance criteria, it is dynamic and will make a password of any given length given in input box
+
   var finalPassword = generatedPassword.slice(0, length)
 
   alert("This is your password: " + finalPassword);
   return finalPassword
 
-
-
-
-
-  // document.getElementsByClassName(resultEl.innerText).reset();
-
 }
-// // Meant to clear results bar, it works but im getting an error message.
-
-
-
 // Generator Functions
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
