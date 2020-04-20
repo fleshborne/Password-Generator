@@ -1,14 +1,14 @@
 // Work with the DOM Elements
-const resultEl = document.getElementById("result");
-const lengthEl = document.getElementById("length");
-const uppercaseEl = document.getElementById("uppercase");
-const lowercaseEl = document.getElementById("lowercase");
-const numbersEL = document.getElementById("numbers");
-const symbolsEl = document.getElementById("symbols");
-const generateEl = document.getElementById("generate");
+var resultEl = document.getElementById("result");
+var lengthEl = document.getElementById("length");
+var uppercaseEl = document.getElementById("uppercase");
+var lowercaseEl = document.getElementById("lowercase");
+var numbersEL = document.getElementById("numbers");
+var symbolsEl = document.getElementById("symbols");
+var generateEl = document.getElementById("generate");
 
 // setting my variables
-const randomFunc = {
+var randomFunc = {
   lower: getRandomLower,
   upper: getRandomUpper,
   number: getRandomNumber,
@@ -18,11 +18,11 @@ const randomFunc = {
 // Add event listener for password generation
 
 generateEl.addEventListener("click", () => {
-  const length = +lengthEl.value;
-  const hasLower = lowercaseEl.checked;
-  const hasUpper = uppercaseEl.checked;
-  const hasNumber = numbersEL.checked;
-  const hasSymbol = symbolsEl.checked;
+  var length = +lengthEl.value;
+  var hasLower = lowercaseEl.checked;
+  var hasUpper = uppercaseEl.checked;
+  var hasNumber = numbersEL.checked;
+  var hasSymbol = symbolsEl.checked;
   // console.log(hasLower, hasUpper, hasNumber, hasSymbol, length);
 
   resultEl.innerText = generatePassword(
@@ -38,11 +38,11 @@ generateEl.addEventListener("click", () => {
 function generatePassword(lower, upper, number, symbol, length) {
   // intialize password generation
   let generatedPassword = "";
-  const typesCount = lower + upper + number + symbol;
+  var typesCount = lower + upper + number + symbol;
 
   console.log("typesCount", typesCount);
   // Filter out unchecked queries
-  const typesArr = [{
+  var typesArr = [{
     lower
   }, {
     upper
@@ -63,25 +63,28 @@ function generatePassword(lower, upper, number, symbol, length) {
 
   for (let i = 0; i < length; i += typesCount) {
     typesArr.forEach(type => {
-      const funcName = Object.keys(type)[0];
+      var funcName = Object.keys(type)[0];
       // console.log("funcName: ", funcName);
       generatedPassword += randomFunc[funcName]();
+
     });
   }
-
   console.log(generatedPassword);
 
   // since index starts at 0, if user wants a 1 character pass word this will allow it
-  const finalPassword = generatedPassword.slice(0, length);
-
-
-  // return finalPassword
+  var finalPassword = generatedPassword.slice(0, length)
 
   alert("This is your password: " + finalPassword);
+  return finalPassword
 
-  document.getElementById(resultEl).reset();
+
+
+
+
+  // document.getElementsByClassName(resultEl.innerText).reset();
+
 }
-
+// // Meant to clear results bar, it works but im getting an error message.
 
 
 
@@ -99,6 +102,7 @@ function getRandomNumber() {
 }
 
 function getRandomSymbol() {
-  const symbols = '!@#$%^&*(){}[]=<>/,.';
+  var symbols = '!@#$%^&*(){}[]=<>/,.';
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
+
