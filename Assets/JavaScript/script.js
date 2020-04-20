@@ -61,7 +61,7 @@ function generatePassword(lower, upper, number, symbol, length) {
   }
   // Loop over the length of the array for each type of attribute selected
 
-  for (let i = 0; i < length; i += typesCount) {
+  for (let i = 0; i < length; i++) {
     typesArr.forEach(type => {
       var funcName = Object.keys(type)[0];
       // console.log("funcName: ", funcName);
@@ -76,7 +76,7 @@ function generatePassword(lower, upper, number, symbol, length) {
   var finalPassword = generatedPassword.slice(0, length)
 
   alert("This is your password: " + finalPassword);
-  return finalPassword
+  return finalPassword;
 
 }
 // Generator Functions
@@ -96,4 +96,5 @@ function getRandomSymbol() {
   var symbols = '!@#$%^&*(){}[]=<>/,.';
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
+
 
